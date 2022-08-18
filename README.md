@@ -16,24 +16,17 @@ docker exec -it <Kafka Container ID> bash
 
 Create input topic
 ```shell
-kafka-topics --bootstrap-server localhost:9092 \ 
-  --create \ 
-  --topic word-count-output \
-  --partitions 3
+kafka-topics --bootstrap-server localhost:9092 --create --topic word-count-input --partitions 3
 ```
 
 Create output topic
 ```shell
-kafka-topics --bootstrap-server localhost:9092 \ 
-  --create \ 
-  --topic word-count-output \
-  --partitions 3
+kafka-topics --bootstrap-server localhost:9092 --create --topic word-count-output --partitions 3
 ```
 
 Produce data to be streamed
 ```shell
-kafka-console-producer --bootstrap-server localhost:9092 \
-  --topic word-count-input
+kafka-console-producer --bootstrap-server localhost:9092 --topic word-count-input
 ```
 
 Consume the stream generate
