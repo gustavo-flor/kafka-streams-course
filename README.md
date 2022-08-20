@@ -74,7 +74,7 @@ Create intermediary topic
 kafka-topics --bootstrap-server localhost:9092 \ 
   --create \ 
   --topic favourite-color-stream \ 
-  --partitions 3
+  --partitions 3 \
   --config cleanup.policy=compact
 ```
 
@@ -85,13 +85,12 @@ kafka-topics --bootstrap-server localhost:9092 \
   --create \ 
   --topic favourite-color-output \ 
   --partitions 3
-  --config cleanup.policy=compact
 ```
 
 Produce data to be streamed
 
 ```shell
-kafka-console-producer --bootstrap-server localhost:9092 \ --topic favourite-color-input
+kafka-console-producer --bootstrap-server localhost:9092 --topic favourite-color-input
 ```
 
 Consume the stream generate
