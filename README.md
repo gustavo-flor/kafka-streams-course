@@ -4,6 +4,10 @@ Repository to put in practice concepts of Kafka Streams Course
 
 ---
 
+![Kafka Streams Diagram](assets/kafka-streams-diagram.png)
+
+## How to practice with applications
+
 Up Kafka environment
 
 ```shell
@@ -18,7 +22,7 @@ docker ps # Find the kafka container ID
 docker exec -it <Kafka Container ID> bash
 ```
 
-## Word Count
+### Word Count
 
 Create input topic
 
@@ -57,7 +61,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
 ```
 
-## Favourite Color
+### Favourite Color
 
 Create input topic
 
