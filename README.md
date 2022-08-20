@@ -4,7 +4,7 @@ Repository to put in practice concepts of Kafka Streams Course
 
 ---
 
-![Kafka Streams Diagram](assets/kafka-streams-diagram.png)
+![Kafka Streams Diagram](kafka-streams-diagram.png)
 
 ## How to practice with applications
 
