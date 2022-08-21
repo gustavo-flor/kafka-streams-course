@@ -115,8 +115,24 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
 Create bank transactions topic
 
 ```shell
-kafka-topics --bootstrap-server localhost:9092 \ 
-  --create \ 
-  --topic bank-transactions \ 
-  --partitions 3
+kafka-topics --bootstrap-server localhost:9092 --create --topic bank-transactions 
+```
+
+Create bank balances topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 --create --topic bank-balances --config cleanup.policy=compact 
+```
+
+Run the applications and listen bank balances topic
+
+```shell
+kafka-console-consumer --bootstrap-server localhost:9092 \
+  --topic bank-balances \
+  --from-beginning \
+  --formatter kafka.tools.DefaultMessageFormatter \
+  --property print.key=true \
+  --property print.value=true \
+  --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+  --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
 ```

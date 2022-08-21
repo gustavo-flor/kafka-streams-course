@@ -21,7 +21,7 @@ public class WordCountApplication {
 
     static {
         PROPERTIES = new Properties();
-        PROPERTIES.setProperty(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        PROPERTIES.setProperty(BOOTSTRAP_SERVERS_CONFIG, "localhost:19092");
         PROPERTIES.setProperty(APPLICATION_ID_CONFIG, "word-count-application-1");
         PROPERTIES.setProperty(DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         PROPERTIES.setProperty(DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
