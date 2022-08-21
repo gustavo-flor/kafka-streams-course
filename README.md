@@ -136,3 +136,54 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
   --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
 ```
+
+### User Event Enricher
+
+Create user table topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 --create --topic user-table --partitions 3 
+```
+
+Create user purchases topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 --create --topic user-purchases --partitions 3
+```
+
+Create user purchases enriched join topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 --create --topic user-purchases-enriched-join --partitions 3
+```
+
+Create user purchases enriched left join topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 --create --topic user-purchases-enriched-left-join --partitions 3
+```
+
+Run the applications and listen user purchases enriched (join/left join) topics
+
+```shell
+kafka-console-consumer --bootstrap-server localhost:9092 \
+  --topic user-purchases-enriched-join \
+  --from-beginning \
+  --formatter kafka.tools.DefaultMessageFormatter \
+  --property print.key=true \
+  --property print.value=true \
+  --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+  --property value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+```
+
+```shell
+kafka-console-consumer --bootstrap-server localhost:9092 \
+  --topic user-purchases-enriched-left-join \
+  --from-beginning \
+  --formatter kafka.tools.DefaultMessageFormatter \
+  --property print.key=true \
+  --property print.value=true \
+  --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+  --property value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+```
+
