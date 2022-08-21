@@ -22,7 +22,7 @@ docker ps # Find the kafka container ID
 docker exec -it <Kafka Container ID> bash
 ```
 
-### Word Count
+### Word Count Use Case
 
 Create input topic
 
@@ -61,7 +61,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
 ```
 
-### Favourite Color
+### Favourite Color Use Case
 
 Create input topic
 
@@ -108,4 +108,15 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property print.value=true \
   --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
   --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+```
+
+### Bank Transaction/Balance Use Case
+
+Create bank transactions topic
+
+```shell
+kafka-topics --bootstrap-server localhost:9092 \ 
+  --create \ 
+  --topic bank-transactions \ 
+  --partitions 3
 ```
